@@ -1,0 +1,17 @@
+spring:
+  config:
+    activate:
+      on-profile: docker
+
+  datasource:
+    url: jdbc:postgresql://product-db:5432/product_db
+    username: product_user
+    password: ${DB_PASSWORD:product_password}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER:http://discovery-service:8761/eureka/}
+  instance:
+    hostname: product-service
+    prefer-ip-address: true
